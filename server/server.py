@@ -10,6 +10,14 @@ def get_location_names():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route('/get_location_names')
+def get_location_names():
+    response = jsonify({
+        'locations': util.get_location_names()
+    })
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 @app.route('/predict_home_price',methods=['POST'])
 def predict_home_price():
     total_sqft = float(request.form['total_sqft'])
