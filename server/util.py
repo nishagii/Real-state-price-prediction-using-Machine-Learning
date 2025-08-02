@@ -20,8 +20,7 @@ def get_estimated_price(location, sqft, bhk, bath):
     if loc_index >= 0:
         x[loc_index] = 1
 
-
-    return round(__model.predict([x])[0],2)
+    return round(__model.predict([x])[0], 2)
 
 
 def get_location_names():
@@ -40,14 +39,14 @@ def load_saved_artifacts():
     global __model
     with open("./artifacts/bangalore_home_price_model.pickle", "rb") as f:
         __model = pickle.load(f)
-    
+
     print("loading saved artifacts...done")
 
 
 if __name__ == "__main__":
     load_saved_artifacts()
     print(get_location_names())
-    print(get_estimated_price('1st Phase JP Nagar',1000, 3, 3))
-    print(get_estimated_price('1st Phase JP Nagar', 1000, 2, 2))
-    print(get_estimated_price('Kalhalli', 1000, 2, 2)) 
-    print(get_estimated_price('Ejipura', 1000, 2, 2)) 
+    print(get_estimated_price("1st Phase JP Nagar", 1000, 3, 3))
+    print(get_estimated_price("1st Phase JP Nagar", 1000, 2, 2))
+    print(get_estimated_price("Kalhalli", 1000, 2, 2))
+    print(get_estimated_price("Ejipura", 1000, 2, 2))
